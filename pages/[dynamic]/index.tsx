@@ -1,4 +1,4 @@
-import { GetStaticPaths, NextPage } from 'next'
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import { useRouter } from 'next/router';
 
@@ -21,7 +21,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: false };
 }
 
-export async function getStaticProps(context) {
+export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {},
   }

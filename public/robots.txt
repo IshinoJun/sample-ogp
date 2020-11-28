@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Host: https://www.example.com
-Sitemap: https://www.example.com/sitemap.xml

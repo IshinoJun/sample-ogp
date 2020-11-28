@@ -6,7 +6,7 @@ const DynamicPage: NextPage = () => {
   const router = useRouter();
   return (
     <div>
-      <h1>{router.query.dynamic}</h1>
+      <h1>{router.query.dynamic}のページだよ</h1>
     </div>
   )
 }

@@ -1,4 +1,3 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { createCanvas, registerFont, loadImage, Canvas } from "canvas";
 import * as path from "path";
 import fs from "fs";

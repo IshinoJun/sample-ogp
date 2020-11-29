@@ -41,7 +41,7 @@ const createTextLines = (canvas: Canvas, text: string): string[] => {
   return lines;
 };
 
-const createGcp = async (dynamic:number): Promise<void> => {
+const createOgp = async (dynamic:number): Promise<void> => {
 
   const WIDTH = 1200 as const;
   const HEIGHT = 630 as const;
@@ -74,4 +74,4 @@ const createGcp = async (dynamic:number): Promise<void> => {
 
 };
 
-export default createGcp;
+export default createOgp;

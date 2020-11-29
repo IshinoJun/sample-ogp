@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import React from 'react'
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import createGcp from '../../utils/server/ogpUtils';
+import createOgp from '../../utils/server/ogpUtils';
 
 const DynamicPage: NextPage = () => {
   const router = useRouter();
@@ -40,7 +40,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   [...Array(10)].forEach((_, index) => {
-    void createGcp(index);
+    void createOgp(index);
   })
 
   return {

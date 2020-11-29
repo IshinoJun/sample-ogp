@@ -42,12 +42,7 @@ const createTextLines = (canvas: Canvas, text: string): string[] => {
   return lines;
 };
 
-const createGcp = async (
-  req: NextApiRequest,
-  res: NextApiResponse
-): Promise<void> => {
-
-  const { dynamic } = req.query;
+const createGcp = async (dynamic:number): Promise<void> => {
 
   const WIDTH = 1200 as const;
   const HEIGHT = 630 as const;
@@ -60,28 +55,24 @@ const createGcp = async (
     family: "ipagp",
   });
 
-  const backgroundImage = await loadImage(
-    path.resolve("./public/ogp.jpg")
-  );
+  const backgroundImage = await loadImage(path.resolve("./public/ogp.jpg"));
 
   ctx.drawImage(backgroundImage, DX, DY, WIDTH, HEIGHT);
   ctx.font = "60px ipagp";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
 
-  const title =
-    String(dynamic) + "のページのOGPだよーーー";
+  const title = dynamic + "のページのOGPだよーーー";
 
   const lines = createTextLines(canvas, title);
   lines.forEach((line, index) => {
     const y = 314 + 80 * (index - (lines.length - 1) / 2);
     ctx.fillText(line, 600, y);
   });
-  
+
   const buffer = canvas.toBuffer();
   fs.writeFileSync(path.resolve(`./public/ogp/${dynamic}.png`), buffer);
 
-  return res.status(200).json({ statusCode: 200, message: "OK" });
 };
 
 export default createGcp;
